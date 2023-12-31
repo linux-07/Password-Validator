@@ -45,5 +45,15 @@ button:hover{
     margin-top: 10px;
     color: red;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 25px;
+    padding: 5px;
+}
+
+@media only screen and (max-width: 380px) {
+    h1 {
+        font-size: 25px;
+    }
+    .status{
+        font-size: 20px;
+    }
 }
