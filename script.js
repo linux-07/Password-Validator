@@ -43,6 +43,17 @@ function generateSymbols() {
 
 const symbols = generateSymbols();
 
+function generateNumbers() {
+    let arr = [];
+    for (let i = 0; i < 10; i++) {
+        arr.push(i + 1);
+    }
+
+    return arr;
+}
+
+const numbers = generateNumbers();
+
 const hasUpperCase = (pass) => {
     for (let i = 0; i < pass.length; i++) {
         if (upperCase.includes(pass[i])) {
@@ -70,7 +81,16 @@ const hasSymbols = (pass) => {
     return false;
 };
 
-function checkPass (pass) {
+const hasNumbers = (pass) => {
+    for (let i = 0; i < pass.length; i++) {
+        if (numbers.includes(pass[i])) {
+            return true;
+        }
+    }
+    return false;
+};
+
+function checkPass(pass) {
     if (pass) {
         let valid = true;
 
@@ -90,11 +110,15 @@ function checkPass (pass) {
             pass_status.innerHTML += "Your Password should have at least 1 symbol<br>";
             valid = false;
         }
+        if (!hasNumbers(pass)) {
+            pass_status.innerHTML += "Your Password should have at least 1 number<br>";
+            valid = false;
+        }
         if (valid) {
-            pass_status.innerHTML += "Your Password is Valid!";
+            pass_status.innerHTML = "Your Password is Valid!";
             pass_status.style.color = 'white';
         }
-    } 
+    }
     else {
         pass_status.innerHTML = "Please enter your Password";
     }
