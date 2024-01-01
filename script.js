@@ -46,7 +46,7 @@ const symbols = generateSymbols();
 function generateNumbers() {
     let arr = [];
     for (let i = 0; i < 10; i++) {
-        arr.push(i + 1);
+        arr.push((i + 1).toString());
     }
 
     return arr;
@@ -93,29 +93,35 @@ const hasNumbers = (pass) => {
 function checkPass(pass) {
     if (pass) {
         let valid = true;
+        pass_status.innerHTML = '';
 
         if (pass.length <= 8) {
             pass_status.innerHTML = "Length of Password should be greater than 8<br>";
+            pass_status.style.color = 'red';
             valid = false;
         }
         if (!hasUpperCase(pass)) {
             pass_status.innerHTML += "Your Password should have at least 1 uppercase character<br>";
+            pass_status.style.color = 'red';
             valid = false;
         }
         if (!hasLowerCase(pass)) {
             pass_status.innerHTML += "Your Password should have at least 1 lowercase character<br>";
+            pass_status.style.color = 'red';
             valid = false;
         }
         if (!hasSymbols(pass)) {
             pass_status.innerHTML += "Your Password should have at least 1 symbol<br>";
+            pass_status.style.color = 'red';
             valid = false;
         }
         if (!hasNumbers(pass)) {
             pass_status.innerHTML += "Your Password should have at least 1 number<br>";
+            pass_status.style.color = 'red';
             valid = false;
         }
         if (valid) {
-            pass_status.innerHTML = "Your Password is Valid!";
+            pass_status.innerHTML = "Your Password is Strong!";
             pass_status.style.color = 'white';
         }
     }
